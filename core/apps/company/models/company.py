@@ -7,6 +7,7 @@ from apps.core.models import CommonInfo
 
 
 class Company(CommonInfo):
+    # TODO: Apenas um todo pra testar no sonarcloud
     trade_name = models.CharField(_("Razão Social"), max_length=255)
 
     UNIQUE_FIELDS_TO_DUPLICATE = [
