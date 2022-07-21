@@ -1,0 +1,19 @@
+name: CIdon
+
+on:
+  pull_request:
+    branches: ["dev"]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: LERIGO
+        run: echo "Rodando patrícia"
+
+      - name: ULTIMO STEP
+        run: echo "SAindo fora"
