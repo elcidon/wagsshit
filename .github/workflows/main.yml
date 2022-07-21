@@ -1,19 +1,21 @@
-name: CIdon
 
 on:
   pull_request:
-    branches: ["dev"]
+    types: [opened, synchronize, reopened]
 
   workflow_dispatch:
 
+name: CIdon
 jobs:
-  build:
+  sonarcloud:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: LERIGO
-        run: echo "Rodando patrícia"
-
-      - name: ULTIMO STEP
-        run: echo "SAindo fora"
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
