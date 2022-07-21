@@ -1,0 +1,102 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="89">
+            <item index="0" class="java.lang.String" itemvalue="django-colorful" />
+            <item index="1" class="java.lang.String" itemvalue="protobuf" />
+            <item index="2" class="java.lang.String" itemvalue="wagtail-import-export" />
+            <item index="3" class="java.lang.String" itemvalue="factory-boy" />
+            <item index="4" class="java.lang.String" itemvalue="trml2pdf" />
+            <item index="5" class="java.lang.String" itemvalue="django-el-pagination" />
+            <item index="6" class="java.lang.String" itemvalue="psycopg2-binary" />
+            <item index="7" class="java.lang.String" itemvalue="wagtail-react-streamfield" />
+            <item index="8" class="java.lang.String" itemvalue="wagtailuiplus" />
+            <item index="9" class="java.lang.String" itemvalue="django-bleach" />
+            <item index="10" class="java.lang.String" itemvalue="redis" />
+            <item index="11" class="java.lang.String" itemvalue="validate-cpf-cnpj" />
+            <item index="12" class="java.lang.String" itemvalue="django-modelcluster" />
+            <item index="13" class="java.lang.String" itemvalue="pipedrive-python-lib" />
+            <item index="14" class="java.lang.String" itemvalue="djangorestframework-simplejwt" />
+            <item index="15" class="java.lang.String" itemvalue="certifi" />
+            <item index="16" class="java.lang.String" itemvalue="rest-condition" />
+            <item index="17" class="java.lang.String" itemvalue="wagtail-condensedinlinepanel" />
+            <item index="18" class="java.lang.String" itemvalue="wagtail-comments-xtd" />
+            <item index="19" class="java.lang.String" itemvalue="comments-wagtail-xtd" />
+            <item index="20" class="java.lang.String" itemvalue="django-log-request-id" />
+            <item index="21" class="java.lang.String" itemvalue="django-model-utils" />
+            <item index="22" class="java.lang.String" itemvalue="django-reversion-compare" />
+            <item index="23" class="java.lang.String" itemvalue="django-toolbelt" />
+            <item index="24" class="java.lang.String" itemvalue="wagtailfontawesome" />
+            <item index="25" class="java.lang.String" itemvalue="django-social-share" />
+            <item index="26" class="java.lang.String" itemvalue="django-contrib-comments" />
+            <item index="27" class="java.lang.String" itemvalue="django-comments-xtd" />
+            <item index="28" class="java.lang.String" itemvalue="idna-ssl" />
+            <item index="29" class="java.lang.String" itemvalue="django-nose" />
+            <item index="30" class="java.lang.String" itemvalue="anyascii" />
+            <item index="31" class="java.lang.String" itemvalue="django-prettyjson" />
+            <item index="32" class="java.lang.String" itemvalue="wagtailsnippetscopy" />
+            <item index="33" class="java.lang.String" itemvalue="wagtail-instance-selector" />
+            <item index="34" class="java.lang.String" itemvalue="asgiref" />
+            <item index="35" class="java.lang.String" itemvalue="iugu" />
+            <item index="36" class="java.lang.String" itemvalue="whitenoise" />
+            <item index="37" class="java.lang.String" itemvalue="wagtailyoast" />
+            <item index="38" class="java.lang.String" itemvalue="appnope" />
+            <item index="39" class="java.lang.String" itemvalue="django-reversion" />
+            <item index="40" class="java.lang.String" itemvalue="serializers" />
+            <item index="41" class="java.lang.String" itemvalue="standardjson" />
+            <item index="42" class="java.lang.String" itemvalue="signals" />
+            <item index="43" class="java.lang.String" itemvalue="django-z3c.rml" />
+            <item index="44" class="java.lang.String" itemvalue="Willow" />
+            <item index="45" class="java.lang.String" itemvalue="mixer" />
+            <item index="46" class="java.lang.String" itemvalue="wagtail-cache" />
+            <item index="47" class="java.lang.String" itemvalue="sq-native" />
+            <item index="48" class="java.lang.String" itemvalue="wagtail-blog" />
+            <item index="49" class="java.lang.String" itemvalue="repoze.lru" />
+            <item index="50" class="java.lang.String" itemvalue="schema" />
+            <item index="51" class="java.lang.String" itemvalue="wagtail" />
+            <item index="52" class="java.lang.String" itemvalue="django-audit-log" />
+            <item index="53" class="java.lang.String" itemvalue="django-ckeditor" />
+            <item index="54" class="java.lang.String" itemvalue="django-nine" />
+            <item index="55" class="java.lang.String" itemvalue="django-notifications-hq" />
+            <item index="56" class="java.lang.String" itemvalue="async-timeout" />
+            <item index="57" class="java.lang.String" itemvalue="django-polls" />
+            <item index="58" class="java.lang.String" itemvalue="django-rest-passwordreset" />
+            <item index="59" class="java.lang.String" itemvalue="choicesenum" />
+            <item index="60" class="java.lang.String" itemvalue="django-eventtools" />
+            <item index="61" class="java.lang.String" itemvalue="pycpfcnpj" />
+            <item index="62" class="java.lang.String" itemvalue="wagtail-font-awesome-svg" />
+            <item index="63" class="java.lang.String" itemvalue="fields-validators" />
+            <item index="64" class="java.lang.String" itemvalue="py-mini-racer" />
+            <item index="65" class="java.lang.String" itemvalue="sqreen" />
+            <item index="66" class="java.lang.String" itemvalue="celery" />
+            <item index="67" class="java.lang.String" itemvalue="public" />
+            <item index="68" class="java.lang.String" itemvalue="wagtail-autocomplete" />
+            <item index="69" class="java.lang.String" itemvalue="wagtail-headless-preview" />
+            <item index="70" class="java.lang.String" itemvalue="django-cors-headers" />
+            <item index="71" class="java.lang.String" itemvalue="deserialize" />
+            <item index="72" class="java.lang.String" itemvalue="cssselect2" />
+            <item index="73" class="java.lang.String" itemvalue="django-rest-knox" />
+            <item index="74" class="java.lang.String" itemvalue="wagtail-robots" />
+            <item index="75" class="java.lang.String" itemvalue="pymongo" />
+            <item index="76" class="java.lang.String" itemvalue="z3c.rml" />
+            <item index="77" class="java.lang.String" itemvalue="futures" />
+            <item index="78" class="java.lang.String" itemvalue="static3" />
+            <item index="79" class="java.lang.String" itemvalue="wagtail-generic-chooser" />
+            <item index="80" class="java.lang.String" itemvalue="rmtest" />
+            <item index="81" class="java.lang.String" itemvalue="Django" />
+            <item index="82" class="java.lang.String" itemvalue="pylint" />
+            <item index="83" class="java.lang.String" itemvalue="django-redis" />
+            <item index="84" class="java.lang.String" itemvalue="hubspot-api-client" />
+            <item index="85" class="java.lang.String" itemvalue="aiohttp" />
+            <item index="86" class="java.lang.String" itemvalue="zope.schema" />
+            <item index="87" class="java.lang.String" itemvalue="django-hashers-passlib" />
+            <item index="88" class="java.lang.String" itemvalue="clicksignlib" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
