@@ -1,5 +1,5 @@
 from typing import List, Type
-from apps.core.hooks.buttons.entity.button import ButtonEntity
+from apps.model_admin.hooks.buttons.entity.button import ButtonEntity
 
 
 class Button:

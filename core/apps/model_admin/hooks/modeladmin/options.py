@@ -1,8 +1,8 @@
 from django.urls import re_path
 from wagtail.contrib.modeladmin.options import ModelAdmin
 
-from apps.core.hooks.buttons.helpers.default import DefaultButtonHelper
-from apps.core.hooks.views.duplicate import DuplicateView
+from apps.model_admin.hooks.buttons.helpers.default import DefaultButtonHelper
+from apps.model_admin.hooks.views.duplicate import DuplicateView
 
 
 class HeroModelAdmin(ModelAdmin):

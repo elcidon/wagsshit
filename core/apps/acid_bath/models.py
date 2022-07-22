@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
-from apps.core.models import CommonInfo
+from apps.model_admin.models import CommonInfo
 from ckeditor.fields import RichTextField
 
 

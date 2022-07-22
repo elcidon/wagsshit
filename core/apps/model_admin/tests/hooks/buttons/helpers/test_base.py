@@ -2,8 +2,8 @@ from unittest.mock import patch, Mock
 
 from django.test import TestCase
 
-from apps.core.hooks.buttons.components import AddButton
-from apps.core.hooks.buttons.helpers.base import BaseButtonHelper
+from apps.model_admin.hooks.buttons.components import AddButton
+from apps.model_admin.hooks.buttons.helpers.base import BaseButtonHelper
 
 
 class TestBaseHelper(TestCase):

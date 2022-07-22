@@ -1,6 +1,6 @@
 from .base import Button
 from django.utils.translation import gettext as _
-from apps.core.hooks.buttons.entity.button import ButtonEntity
+from apps.model_admin.hooks.buttons.entity.button import ButtonEntity
 
 
 class AddButton(Button):

@@ -1,6 +1,6 @@
 from unittest.mock import patch, Mock
 from django.test import TestCase
-from apps.core.utils.duplicate import DuplicateObject
+from apps.model_admin.utils.duplicate import DuplicateObject
 
 
 class TestDuplicateUtils(TestCase):

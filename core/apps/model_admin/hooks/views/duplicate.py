@@ -3,7 +3,7 @@ from wagtail.admin import messages
 from wagtail.contrib.modeladmin.views import InstanceSpecificView
 from django.utils.translation import gettext as _
 
-from apps.core.utils.duplicate import DuplicateObject
+from apps.model_admin.utils.duplicate import DuplicateObject
 
 
 class DuplicateView(InstanceSpecificView):

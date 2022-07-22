@@ -1,6 +1,6 @@
 from django.utils.encoding import force_str
 from typing import List, Dict, Any, Type, Union
-from apps.core.hooks.buttons.components import Button, AddButton
+from apps.model_admin.hooks.buttons.components import Button, AddButton
 
 
 class BaseButtonHelper:

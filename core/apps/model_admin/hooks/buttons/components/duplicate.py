@@ -1,8 +1,8 @@
 from django.contrib.admin.utils import quote
 from django.utils.translation import gettext as _
 
-from apps.core.hooks.buttons.components import Button
-from apps.core.hooks.buttons.entity.button import ButtonEntity
+from apps.model_admin.hooks.buttons.components import Button
+from apps.model_admin.hooks.buttons.entity.button import ButtonEntity
 
 
 class DuplicateButton(Button):
