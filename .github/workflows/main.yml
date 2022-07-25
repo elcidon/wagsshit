@@ -40,6 +40,8 @@ jobs:
         run: |
           cd core
           coverage xml
+          pwd
+          ls
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
