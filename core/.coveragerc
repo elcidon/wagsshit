@@ -1,0 +1,10 @@
+[run]
+branch = True
+source =
+    core/apps
+
+[report]
+skip_covered = True
+
+[xml]
+output = .coverage-reports/coverage-report.xml
