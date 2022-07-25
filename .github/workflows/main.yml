@@ -11,10 +11,10 @@ jobs:
     name: Build & Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Python 3.10
+      - name: Setup Python 3.10.5
         uses: actions/setup-python@v2
         with:
-          python-version: 3.10
+          python-version: 3.10.5
 
       - name: Install Linux Dependencies
         run: sudo apt-get install libpq-dev libxml2-dev -y
