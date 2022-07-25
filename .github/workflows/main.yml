@@ -7,9 +7,80 @@ on:
 
 name: CIdon
 jobs:
+  build:
+    name: Build & Tests
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ "3.6", "3.7", "3.8", "3.9", "3.10" ]
+        poetry-version: [ "1.0", "1.1.11" ]
+        os: [ ubuntu-18.04, macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: View poetry --help
+        run: poetry --help
+
+      - name: Install Linux Dependencies
+        run: sudo apt-get install libpq-dev libxml2-dev -y
+
+      - uses: actions/checkout@v3
+        name: Git Checkout
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v12
+        with:
+          files: |
+            *.py
+            !**/migrations*.py
+            !**/00.py
+            !**test*.py
+
+      - name: Set up Python 3.10
+        if: ${{ steps.changed-files.outputs.any_modified }} == 'true'
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+
+      - uses: actions/cache@v2
+        if: ${{ steps.changed-files.outputs.any_modified }} == 'true'
+        id: cache-python
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('core/manage.py') }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install Requirements
+        if: ${{ steps.changed-files.outputs.any_modified == 'true' && steps.cache-python.outputs.cache-hit != 'true' }}
+        run: poetry add
+
+      - name: Executing tests
+        id: test
+        working-directory: core
+        run: |
+            pip install coverage
+            coverage run manage.py test apps.model_admin --noinput --verbose
+
+
+      - name: Generate XML
+        if: ${{ steps.changed-files.outputs.any_modified == 'true' && env.RUN_TESTS  == 'true' }}
+        run: |
+          cd core
+          coverage xml
+
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
