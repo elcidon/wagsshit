@@ -1,7 +1,7 @@
 [run]
 branch = True
 source =
-    core/apps
+    apps
 
 [report]
 skip_covered = True
