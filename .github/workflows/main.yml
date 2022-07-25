@@ -37,7 +37,9 @@ jobs:
             coverage run manage.py test apps.model_admin -v 2
 
       - name: Generate XML
-        run: coverage xml
+        run: |
+          cd core
+          coverage xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
