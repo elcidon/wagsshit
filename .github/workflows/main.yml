@@ -40,8 +40,11 @@ jobs:
         run: |
           cd core
           coverage xml
-          pwd
-          ls
+
+      - name: fix code coverage paths
+        run: |
+          cd core
+          sed -i 's;/home/runner/work/wagsshit/wagsshit/;/github/workspace/;g' .coverage-reports/coverage-report.xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
