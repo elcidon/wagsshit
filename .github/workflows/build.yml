@@ -37,7 +37,7 @@ jobs:
         id: test
         working-directory: core
         run: |
-            coverage run manage.py test apps.model_admin -v 2
+            coverage run manage.py test --noinput -v 2
 
       - name: Generate XML
         run: |
