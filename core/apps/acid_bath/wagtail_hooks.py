@@ -4,7 +4,7 @@ from wagtail.contrib.modeladmin.options import (
 from django.utils.translation import gettext as _
 
 from .models import AcidBath
-from ..model_admin.hooks.modeladmin.options import BaseModelAdmin
+from model_admin.hooks.modeladmin.options import BaseModelAdmin
 
 
 @modeladmin_register

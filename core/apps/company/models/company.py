@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 from wagtail.core.fields import StreamField
 
 from apps.company.blocks.header import HeadingBlock
-from apps.model_admin.models import CommonInfo
+from model_admin.models import CommonInfo
 
 
 class Company(CommonInfo):
