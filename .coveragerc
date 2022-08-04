@@ -1,7 +1,7 @@
 [run]
 branch = True
 omit = */tests/*, */migrations/*, */urls.py, */settings/*, */wsgi.py, manage.py, fabfile.py
-source = .
+source = model_admin
 
 [report]
 skip_covered = True
