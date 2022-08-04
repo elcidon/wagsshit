@@ -39,6 +39,7 @@ jobs:
         run: |
             coverage run manage.py test --noinput -v 2
 
+
       - name: Generate XML
         run: |
           cd core
