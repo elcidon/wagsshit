@@ -1,2 +1,2 @@
 # requirements.txt
--e ../../WagsShit
+-e ../../wagsshit
