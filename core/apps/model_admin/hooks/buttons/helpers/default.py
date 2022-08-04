@@ -4,9 +4,8 @@ from ..components import DeleteButton, EditButton, InspectButton, DuplicateButto
 
 class DefaultButtonHelper(BaseButtonHelper):
 
-    _buttons = [
+    buttons = [
         EditButton,
         DeleteButton,
         InspectButton,
-        DuplicateButton,
     ]

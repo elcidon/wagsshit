@@ -2,7 +2,7 @@ from unittest.mock import patch, Mock
 
 from django.test import TestCase
 
-from apps.model_admin.hooks.buttons.components import AddButton
+from apps.model_admin.hooks.buttons.components import AddButton, Button
 from apps.model_admin.hooks.buttons.helpers.base import BaseButtonHelper
 
 
@@ -26,7 +26,7 @@ class TestBaseHelper(TestCase):
 
         request = Mock()
         self.c = BaseButtonHelper(view, request)
-        self.c._buttons = [AddButton]
+        self.c.buttons = [AddButton]
         self.obj = Mock(id="UUID_QUALQUER")
 
     def test_get_add_button(self):
@@ -90,3 +90,13 @@ class TestBaseHelper(TestCase):
             }
         ]
         self.assertEqual(result, expected)
+
+    def test_not_implemented_render(self):
+        """Should raises a NotImplemented Error if a class without render method was defined"""
+
+        class TestButton(Button):
+            pass
+
+        with self.assertRaises(NotImplementedError):
+            b = TestButton()
+            b.render(helper=Mock(), pk="BLA")

@@ -4,7 +4,7 @@ from apps.model_admin.hooks.buttons.components import Button, AddButton
 
 
 class BaseButtonHelper:
-    _buttons: List[Type[Button]]
+    buttons: List[Type[Button]]
     _add_button: Type[Button] = AddButton
 
     def __init__(self, view, request):
@@ -74,7 +74,7 @@ class BaseButtonHelper:
         """
         pk = self._get_pk(obj)
         buttons = []
-        for button in self._buttons:
+        for button in self.buttons:
             if button.validate(self.permission_helper, self.request, obj, self._parse_none(exclude)):
                 buttons.append(
                     self._render(
