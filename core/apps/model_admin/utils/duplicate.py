@@ -5,6 +5,7 @@ from django.db.models import Model
 from django.utils.text import slugify
 
 
+# TODO: Remover esse todo
 class DuplicateObject:
 
     @classmethod
