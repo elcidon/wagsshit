@@ -4,12 +4,12 @@ from wagtail.contrib.modeladmin.options import (
 from django.utils.translation import gettext as _
 
 from .models import Company
-from ..model_admin.hooks.buttons.helpers.default import DefaultButtonHelper
-from ..model_admin.hooks.modeladmin.options import HeroModelAdmin
+from model_admin.hooks.buttons.components import DuplicateButton
+from model_admin.hooks.modeladmin.options import BaseModelAdmin
 
 
 @modeladmin_register
-class CompanyAdmin(HeroModelAdmin):
+class CompanyAdmin(BaseModelAdmin):
     model = Company
     menu_label = _("Company")
     menu_icon = 'pilcrow'
@@ -19,3 +19,7 @@ class CompanyAdmin(HeroModelAdmin):
     list_display = ('id', 'trade_name', 'created_at',)
     list_filter = ('trade_name',)
     search_fields = ('trade_name', )
+
+    add_custom_buttons = [
+        DuplicateButton,
+    ]

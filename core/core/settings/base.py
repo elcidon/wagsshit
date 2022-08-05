@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 CORE_APPS = [
     'apps.home',
     'apps.search',
-    'apps.model_admin',
+    'model_admin',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
