@@ -1,0 +1,10 @@
+[run]
+branch = True
+omit = */tests/*, */migrations/*, */urls.py, */settings/*, */wsgi.py, manage.py, fabfile.py
+source = model_admin
+
+[report]
+skip_covered = True
+
+[xml]
+output = .coverage-reports/coverage-report.xml

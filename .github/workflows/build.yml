@@ -35,13 +35,13 @@ jobs:
 
       - name: Executing tests
         id: test
-        working-directory: core
+        working-directory: .
         run: |
-            coverage run manage.py test apps.model_admin -v 2
+            coverage run load_tests.py
+
 
       - name: Generate XML
         run: |
-          cd core
           coverage xml
           sed -i 's;/home/runner/work/wagsshit/wagsshit/;/github/workspace/;g' .coverage-reports/coverage-report.xml
 
