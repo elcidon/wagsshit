@@ -1,33 +1,18 @@
-from unittest.mock import patch, Mock
-
-from django.test import TestCase
-
+from unittest.mock import Mock
 from model_admin.hooks.buttons.components import AddButton, Button
 from model_admin.hooks.buttons.helpers.base import BaseButtonHelper
+from model_admin.hooks.buttons.helpers.default import DefaultButtonHelper
+from model_admin.tests.hooks.buttons.test_base.base import TestBaseButtons
 
 
-class TestBaseHelper(TestCase):
+class TestBaseHelper(TestBaseButtons):
 
     def setUp(self):
+        super().setUp()
 
-        view = Mock(
-            model=Mock(
-                _meta=Mock(
-                    pk=Mock(attname="id"),
-                    verbose_name="Helper",
-                    verbose_name_plural="Helpers",
-                )
-            ),
-            url_helper=Mock(
-                create_url="add.url"
-            ),
-            permission_helper=Mock()
-        )
-
-        request = Mock()
-        self.c = BaseButtonHelper(view, request)
+        self.request = Mock()
+        self.c = BaseButtonHelper(self.view, self.request)
         self.c.buttons = [AddButton]
-        self.obj = Mock(id="UUID_QUALQUER")
 
     def test_get_add_button(self):
         """Should return a button Rendered"""
@@ -94,9 +79,13 @@ class TestBaseHelper(TestCase):
     def test_not_implemented_render(self):
         """Should raises a NotImplemented Error if a class without render method was defined"""
 
-        class TestButton(Button):
+        class TestButton(Button): # noqa
             pass
 
         with self.assertRaises(NotImplementedError):
             b = TestButton()
             b.render(helper=Mock(), pk="BLA")
+
+    def test_default_button(self):
+        """Render the default buttons"""
+        DefaultButtonHelper(self.view, self.request)
