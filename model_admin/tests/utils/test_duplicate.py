@@ -9,12 +9,13 @@ class MockedModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField("title", max_length=255)
     slug = models.CharField("slug", max_length=255)
+    another_field = models.CharField("Another Field", max_length=255, unique=True)
 
 
 class TestDuplicateUtils(TestCase):
 
     def setUp(self) -> None:
-        self.obj = MockedModel(pk="MEU_UUID", slug="slug-1", title="Titulo do meu objeto")
+        self.obj = MockedModel(pk="MEU_UUID", slug="slug-1", title="Titulo do meu objeto", another_field="Outro")
 
     def test_concatenate_COPY_to_field(self):
         """Should concatenate COPY as prefix of field. If slug passed, must `slugify` the text"""
@@ -44,3 +45,8 @@ class TestDuplicateUtils(TestCase):
         self.assertTrue(mocked_model_save.called)
         self.assertEqual(self.obj.title, "COPY Titulo do meu objeto")
         self.assertEqual(self.obj.slug, "copy-slug-1")
+
+    @patch.object(MockedModel, 'save')
+    def test_auto_import_unique_fields(self, mocked_model_save):
+        DuplicateObject.do(self.obj)
+        self.assertEqual(self.obj.another_field, "COPY Outro")
