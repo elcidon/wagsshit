@@ -1,0 +1,16 @@
+name: Auto create a PR to main
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  auto-pr-to-main:
+    name: Creating PR to main
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull-request-action
+        uses: vsoch/pull-request-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "main"
