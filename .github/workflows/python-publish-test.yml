@@ -1,9 +1,6 @@
 name: Upload Package Test PyPI
 
 on:
-  push:
-    branches:
-      - dev
   pull_request:
     branches:
       - dev
