@@ -22,6 +22,12 @@ class BaseModelAdmin(ModelAdmin):
     def get_duplicate_template(self):
         return self.duplicate_template_name or self.get_templates('duplicate')
 
+    # TODO: Adicionar a URL mais dinamicamente, de acordo com o botão definido
+    # Talvez seja uma boa ideia adicionar as rotas dentro de cada botão
+    # Nesse caso, é o handler que contém a rota do duplicate
+    # Talvez não precisa estar definido lá
+    #
+    # Depois de definido, a função abaixo apenas precisa ler a rota de cada botão inserido em add_custom_buttons
     def get_admin_urls_for_registration(self):
         urls = super().get_admin_urls_for_registration()
         urls = urls + (
@@ -39,7 +45,7 @@ class BaseModelAdmin(ModelAdmin):
             True or raise an exception
         """
         if not isinstance(self.add_custom_buttons, list):
-            raise Exception("`add_custom_buttons` must be a list of Buttons object (List[Type[Button]])")
+            raise TypeError("`add_custom_buttons` must be a list of Buttons object (List[Type[Button]])")
         return True
 
     def _add_custom_buttons(self, button_helper_class):

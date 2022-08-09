@@ -78,5 +78,17 @@ class DuplicateObject:
     def do(cls, obj: Type[Model]) -> None:
         obj.pk = None
         for field in cls._get_fields(obj):
+            # TODO: Vai ser necessário verificar o `max_length` de cada campo, antes de inserir o texto "COPY"
+            # Isso porque se tivermos uma string muito grande (quase chegando no limite do max_length) e adicionarmos o
+            # texto COPY no início, vai estourar o limite e gerar um erro ao salvar os dados
+
+            # POSSÍVEL SOLUÇÃO
+            # -----------------
+            # Calcular a quantidade de caracteres, inserir o texto COPY no início da string e remover os caracteres
+            # do final do texto, até chegar no limite do max_length
+            # EX: max_length=14
+            # texto original: slug-aqui-1234
+            # texto manipulado: copy-slug-aqui
+
             setattr(obj, field, cls._set_copy_to_text(obj, field))
         obj.save()
