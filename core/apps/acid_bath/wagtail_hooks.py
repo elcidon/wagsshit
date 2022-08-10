@@ -4,11 +4,11 @@ from wagtail.contrib.modeladmin.options import (
 from django.utils.translation import gettext as _
 
 from .models import AcidBath
-from ..core.hooks.modeladmin.options import HeroModelAdmin
+from model_admin.hooks.modeladmin.options import BaseModelAdmin
 
 
 @modeladmin_register
-class AcidBathAdmin(HeroModelAdmin):
+class AcidBathAdmin(BaseModelAdmin):
     model = AcidBath
     menu_label = _("Acid Bath")
     menu_icon = 'pilcrow'
