@@ -4,7 +4,9 @@ on:
     branches:
       - dev
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, edited]
+    branches:
+      - dev
 
   workflow_dispatch:
 
@@ -38,7 +40,6 @@ jobs:
         working-directory: .
         run: |
             coverage run load_tests.py
-
 
       - name: Generate XML
         run: |
