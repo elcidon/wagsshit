@@ -1,8 +1,7 @@
 name: Upload Package Test PyPI
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize, edited]
+  push:
     branches:
       - dev
 
