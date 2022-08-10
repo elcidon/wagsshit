@@ -47,8 +47,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/wagtail-modeladmin-extension-${{ env.pkg_version }}.tar
-          asset_name: wagtail-modeladmin-extension-${{ env.pkg_version }}.tar
+          asset_path: ./dist/wagtail-modeladmin-extension-${{ env.pkg_version }}.tar.gz
+          asset_name: wagtail-modeladmin-extension-${{ env.pkg_version }}.tar.gz
           asset_content_type: application/x-gtar
 
       - uses: eregon/publish-release@v1
