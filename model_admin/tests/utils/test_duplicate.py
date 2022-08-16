@@ -10,12 +10,19 @@ class MockedModel(models.Model):
     title = models.CharField("title", max_length=255)
     slug = models.CharField("slug", max_length=255)
     another_field = models.CharField("Another Field", max_length=255, unique=True)
+    max_lgt_field = models.CharField("Max LGT Field", max_length=10, unique=True)
 
 
 class TestDuplicateUtils(TestCase):
 
     def setUp(self) -> None:
-        self.obj = MockedModel(pk="MEU_UUID", slug="slug-1", title="Titulo do meu objeto", another_field="Outro")
+        self.obj = MockedModel(
+            pk="MEU_UUID",
+            slug="slug-1",
+            title="Titulo do meu objeto",
+            another_field="Outro",
+            max_lgt_field="max length"
+        )
 
     def test_concatenate_COPY_to_field(self):
         """Should concatenate COPY as prefix of field. If slug passed, must `slugify` the text"""
@@ -50,3 +57,10 @@ class TestDuplicateUtils(TestCase):
     def test_auto_import_unique_fields(self, mocked_model_save):
         DuplicateObject.do(self.obj)
         self.assertEqual(self.obj.another_field, "COPY Outro")
+
+    @patch.object(MockedModel, 'save')
+    def test_field_max_length(self, mocked_model_save):
+        """Should return stripped text if limit go over of the maximum length."""
+        DuplicateObject.do(self.obj)
+        self.assertEqual(self.obj.max_lgt_field, "COPY max l")
+

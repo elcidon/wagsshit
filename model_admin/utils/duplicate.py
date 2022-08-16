@@ -1,11 +1,30 @@
 from re import search
-from typing import Type, List
+from typing import Type, List, Union
 
 from django.db.models import Model
 from django.utils.text import slugify
 
 
 class DuplicateObject:
+
+    @classmethod
+    def _field_max_length(cls, obj: Type[Model], field: str) -> Union[int, None]:
+        """Return text according to the max_length defined in Django field
+
+        Args:
+            obj (Model): A Django model
+            field (str): The field name that will want to be found
+
+        Returns:
+            int: The maximum length of field
+            None: If field has no maximum length
+        """
+        max_length = None
+        django_field = obj._meta.get_field(field) # noqa
+        if hasattr(django_field, "max_length"):
+            max_length = django_field.max_length
+
+        return max_length
 
     @classmethod
     def _set_copy_to_text(cls, obj: Type[Model], field: str) -> str:
@@ -22,7 +41,8 @@ class DuplicateObject:
         final_text = "COPY %s" % getattr(obj, field)
         if search("slug", field):
             final_text = slugify(final_text)
-        return final_text
+        max_length = cls._field_max_length(obj, field)
+        return final_text[0:max_length]
 
     @classmethod
     def _auto_import_unique_fields(cls, obj: Type[Model]) -> List[str]:
@@ -78,17 +98,5 @@ class DuplicateObject:
     def do(cls, obj: Type[Model]) -> None:
         obj.pk = None
         for field in cls._get_fields(obj):
-            # TODO: Vai ser necessário verificar o `max_length` de cada campo, antes de inserir o texto "COPY"
-            # Isso porque se tivermos uma string muito grande (quase chegando no limite do max_length) e adicionarmos o
-            # texto COPY no início, vai estourar o limite e gerar um erro ao salvar os dados
-
-            # POSSÍVEL SOLUÇÃO
-            # -----------------
-            # Calcular a quantidade de caracteres, inserir o texto COPY no início da string e remover os caracteres
-            # do final do texto, até chegar no limite do max_length
-            # EX: max_length=14
-            # texto original: slug-aqui-1234
-            # texto manipulado: copy-slug-aqui
-
             setattr(obj, field, cls._set_copy_to_text(obj, field))
         obj.save()
