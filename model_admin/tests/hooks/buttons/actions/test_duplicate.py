@@ -1,7 +1,8 @@
 from unittest.mock import patch
 from django.test import TestCase
-from model_admin.utils.duplicate import DuplicateObject
 from django.db import models
+
+from model_admin.hooks.buttons.actions.duplicate import DuplicateObject
 
 
 class MockedModel(models.Model):
