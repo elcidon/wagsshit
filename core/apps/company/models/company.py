@@ -5,13 +5,14 @@ from wagtail.core.fields import StreamField
 from apps.company.blocks.header import HeadingBlock
 from core.models import CommonInfo
 
+from model_admin.hooks.buttons.handlers.base import FieldHandler
+
 
 class Company(CommonInfo):
-    # TODO: Apenas um todo pra testar no sonarcloud
     trade_name = models.CharField(_("Razão Social"), max_length=255)
 
-    UNIQUE_FIELDS_TO_DUPLICATE = [
-        "trade_name"
+    HANDLER_FIELDS_TO_DUPLICATE = [
+        FieldHandler("trade_name", prefix="CÓPIA______", suffix="______TESTE"),
     ]
 
     body = StreamField([
