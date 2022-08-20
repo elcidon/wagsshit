@@ -1,16 +1,10 @@
+import uuid
 from unittest.mock import patch
 from django.test import TestCase
 from django.db import models
 
 from model_admin.hooks.buttons.actions.duplicate import DuplicateObject
-
-
-class MockedModel(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField("title", max_length=255)
-    slug = models.CharField("slug", max_length=255)
-    another_field = models.CharField("Another Field", max_length=255, unique=True)
-    max_lgt_field = models.CharField("Max LGT Field", max_length=10, unique=True)
+from model_admin.tests.hooks.buttons.test_base.mocks import MockedModel
 
 
 class TestDuplicateUtils(TestCase):
