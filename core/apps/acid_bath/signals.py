@@ -1,4 +1,3 @@
-from dataclasses import dataclass, field
 from typing import Any, Dict, List
 
 from django.db.models.signals import post_save
@@ -23,7 +22,6 @@ DATA = {
     dispatch_uid="acid_bath_post_save",
 )
 def acid_bath_post_save(sender, instance, **kwargs):
-    from pprint import pprint
 
     content = instance.content
     template = Template(content)

@@ -137,10 +137,13 @@ class RegisterHandlers(IHandlers):
         """
         fields = []
         for field in self.obj._meta.get_fields():  # noqa
-            if hasattr(field, "unique") and field.unique:
-                if "id" not in field.name:
-                    f = FieldHandler(field.name)
-                    fields.append(f)
+            if (
+                hasattr(field, "unique")
+                and field.unique
+                and "id" not in field.name
+            ):
+                f = FieldHandler(field.name)
+                fields.append(f)
         return fields
 
     def _get_fields(self) -> List[IFieldHandler]:
@@ -154,7 +157,7 @@ class RegisterHandlers(IHandlers):
         fields = self._import_unique_fields() if self.auto_import_unique_fields else []
 
         if hasattr(self.obj, "HANDLER_FIELDS_TO_DUPLICATE"):
-            register_handlers = getattr(self.obj, "HANDLER_FIELDS_TO_DUPLICATE")
+            register_handlers = self.obj.HANDLER_FIELDS_TO_DUPLICATE
             fields = fields + register_handlers
         return fields
 

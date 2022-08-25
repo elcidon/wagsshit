@@ -17,7 +17,6 @@ urlpatterns = [
     path('search/', search_views.search, name='search'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
-    # path('company/', include(company.urls), name='company'),
 ]
 
 

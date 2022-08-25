@@ -71,9 +71,12 @@ class DuplicateObject:
         """
         fields = []
         for field in obj._meta.get_fields():  # noqa
-            if hasattr(field, "unique") and field.unique:
-                if "id" not in field.name:
-                    fields.append(field.name)
+            if (
+                hasattr(field, "unique")
+                and field.unique
+                and "id" not in field.name
+            ):
+                fields.append(field.name)
         return fields
 
     @classmethod
