@@ -1,5 +1,3 @@
-from unittest.mock import patch
-
 from django.test import TestCase
 
 from model_admin.hooks.buttons.handlers.base import FieldHandler, SlugFieldHandler

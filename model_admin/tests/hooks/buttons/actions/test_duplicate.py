@@ -1,8 +1,5 @@
-import uuid
 from unittest.mock import patch
 from django.test import TestCase
-from django.db import models
-
 from model_admin.hooks.buttons.actions.duplicate import DuplicateObject
 from model_admin.tests.hooks.buttons.test_base.mocks import MockedModel
 

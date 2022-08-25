@@ -77,21 +77,6 @@ class DuplicateObject:
         return fields
 
     @classmethod
-    def _remove_duplicates(cls, lists: List[List[str]]) -> List[str]:
-        """Auto retrieve all unique fields defined in model
-
-        Args:
-            lists (List[List[str]]): A list of lists with all fields to create a only one list
-
-        Returns:
-            List[str]: A list containing all fields (without duplicates)
-        """
-        all_lists = []
-        for li in lists:
-            all_lists = all_lists + li
-        return list(set(all_lists))
-
-    @classmethod
     def _get_fields(cls, obj: Type[Model]) -> List[str]:
         """Get all fields to concatenate the text COPY.
 
