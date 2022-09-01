@@ -12,7 +12,6 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "model_admin"
 def boostrap():
     settings.configure(
         BASE_DIR=BASE_DIR,
-        DEBUG=True,
         DATABASES={
             "default":{
                 "ENGINE":"django.db.backends.sqlite3",

@@ -16,7 +16,6 @@ class TestBaseHelper(TestBaseButtons):
 
     def test_get_add_button(self):
         """Should return a button Rendered"""
-
         expected = {
             "url": 'add.url',
             "label": 'Add Helper',

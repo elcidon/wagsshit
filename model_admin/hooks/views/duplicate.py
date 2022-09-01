@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
+from django.utils.translation import gettext as _
 from wagtail.admin import messages
 from wagtail.contrib.modeladmin.views import InstanceSpecificView
-from django.utils.translation import gettext as _
 
 from model_admin.hooks.buttons.actions.duplicate import DuplicateObject
 
