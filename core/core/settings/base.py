@@ -15,7 +15,6 @@ import os
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -23,8 +22,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 CORE_APPS = [
-    'apps.home',
-    'apps.search',
     'model_admin',
 
     'wagtail.contrib.forms',
@@ -51,126 +48,13 @@ CORE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_APPS = [
-    "ckeditor",
-    "ckeditor_uploader",
-]
 
 CUSTOM_APPS = [
-    'apps.company',
-    'apps.acid_bath',
+    'core.company',
+    # 'acid_bath',
 ]
 
-INSTALLED_APPS = CORE_APPS + THIRD_APPS + CUSTOM_APPS
-
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
-    "default": {
-        "removePlugins":
-            "stylesheetparser",
-        "skin":
-            "moono",
-        "toolbar_Basic": [
-            ["Source", "-", "Bold", "Italic"],
-            ["Source", "-", "Bold", "Italic"],
-        ],
-        "toolbar_YourCustomToolbarConfig": [
-            {
-                "name": "document",
-                "items": ["Source", "-", "Templates"]
-            },
-            {
-                "name": "clipboard",
-                "items": ["Undo", "Redo"]
-            },
-            {
-                "name": "basicstyles",
-                "items": [
-                    "Bold",
-                    "Italic",
-                    "Underline",
-                    "Strike",
-                    "Subscript",
-                    "Superscript",
-                    "-",
-                    "RemoveFormat",
-                ],
-            },
-            {
-                "name": "paragraph",
-                "items": [
-                    "NumberedList",
-                    "BulletedList",
-                    "-",
-                    "Outdent",
-                    "Indent",
-                    "-",
-                    "Blockquote",
-                    "-",
-                    "JustifyLeft",
-                    "JustifyCenter",
-                    "JustifyRight",
-                    "JustifyBlock",
-                ],
-            },
-            {
-                "name": "links",
-                "items": ["Link", "Unlink", "Anchor"]
-            },
-            {
-                "name": "insert",
-                "items": [
-                    "Image",
-                    "Table",
-                    "HorizontalRule",
-                    "Smiley",
-                    "SpecialChar",
-                    "PageBreak",
-                ],
-            },
-            {
-                "name": "styles",
-                "items": ["Styles", "Format", "FontSize"]
-            },
-            {
-                "name": "colors",
-                "items": ["TextColor", "BGColor"]
-            },
-            {
-                "name": "tools",
-                "items": ["Maximize", "Preview", "ShowBlocks"]
-            },
-            {
-                'name': 'youtube',
-                'items': ['Youtube']
-            }
-        ],
-        "toolbar": "YourCustomToolbarConfig",  # put selected toolbar config
-        "mathJaxLib":
-            "//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js"
-            "?config=TeX-AMS_HTML",
-        "tabSpaces":
-            4,
-        "extraPlugins":
-            ",".join(
-                [
-                    "uploadimage",  # the upload image feature
-                    "div",
-                    "autolink",
-                    "autoembed",
-                    "embedsemantic",
-                    "autogrow",
-                    "devtools",
-                    "widget",
-                    "lineutils",
-                    "clipboard",
-                    "dialog",
-                    "dialogui",
-                    "elementspath",
-                ]
-            ),
-    }
-}
+INSTALLED_APPS = CORE_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -184,7 +68,7 @@ MIDDLEWARE = [
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'core.core.urls'
 
 TEMPLATES = [
     {
@@ -204,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'core.core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -277,4 +161,3 @@ WAGTAIL_SITE_NAME = "core"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
-

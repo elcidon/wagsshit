@@ -37,3 +37,9 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Github Workflows
+.github/
+sonar-project.properties
+.deepsource.toml
+.codacy.yml
