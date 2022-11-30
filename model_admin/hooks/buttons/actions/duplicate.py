@@ -5,7 +5,11 @@ from django.db.models import Model
 from django.utils.text import slugify
 from model_admin.hooks.buttons.handlers.base import FieldHandler
 
+
 class DuplicateObject:
+    """
+        This class hold all the logic to duplicate a given object
+    """
 
     @classmethod
     def _field_max_length(cls, obj: Type[Model], field: str) -> Union[int, None]:
@@ -38,7 +42,7 @@ class DuplicateObject:
             str: The string with COPY concatenated
 
         """
-        final_text = "COPY %s" % getattr(obj, field)
+        final_text = f"COPY {getattr(obj, field)}"
         if search("slug", field):
             final_text = slugify(final_text)
         max_length = cls._field_max_length(obj, field)
@@ -49,7 +53,8 @@ class DuplicateObject:
         """Auto retrieve all unique fields defined in model
 
         Args:
-            lists (List[List[str]]): A list of lists with all fields to create a only one list
+            lists (List[List[str]]): A list of lists with all fields to 
+            create a only one list
 
         Returns:
             List[str]: A list containing all fields (without duplicates)
@@ -71,9 +76,11 @@ class DuplicateObject:
         """
         fields = []
         for field in obj._meta.get_fields():  # noqa
-            if hasattr(field, "unique") and field.unique:
-                if "id" not in field.name:
-                    fields.append(FieldHandler(field.name))
+            if (
+                (hasattr(field, "unique") and field.unique) 
+                and "id" not in field.name
+            ):
+                fields.append(FieldHandler(field.name))
         return fields
 
     @classmethod
@@ -96,9 +103,9 @@ class DuplicateObject:
 
     @classmethod
     def do(cls, obj: Type[Model]) -> None:
+        """Just execute the action"""
         obj.pk = None
 
         for field in cls._get_fields(obj):
-            print("FIELD AQUI PORRA:", field)
             setattr(obj, field.name, field.handle(obj))
         obj.save()

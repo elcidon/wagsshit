@@ -29,9 +29,6 @@ jobs:
 
       - name: Get package version
         run: |
-          echo ${{ github.run_id }}
-          echo ${{ github.run_number }}
-          echo ${{ github.run_attempt }}
           echo "pkg_version=$(python -c "from model_admin.__init__ import __version__;print(__version__)")" >> $GITHUB_ENV
 
       - name: Create Draft Release
