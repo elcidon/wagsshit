@@ -2,6 +2,7 @@ from unittest.mock import patch
 from django.test import TestCase
 from model_admin.hooks.buttons.actions.duplicate import DuplicateObject
 from model_admin.tests.hooks.buttons.test_base.mocks import MockedModel
+from model_admin.hooks.buttons.handlers.base import FieldHandler, SlugFieldHandler
 
 
 class TestDuplicateUtils(TestCase):
@@ -38,7 +39,10 @@ class TestDuplicateUtils(TestCase):
     @patch.object(MockedModel, 'save')
     def test_check_all_fields_to_duplicate(self, mocked_model_save):
         """should fetch all fields to duplicate and set the prefix copy to each of them."""
-        self.obj.UNIQUE_FIELDS_TO_DUPLICATE = ["title", "slug"]
+        self.obj.HANDLER_FIELDS_TO_DUPLICATE = [
+            FieldHandler("title"), 
+            SlugFieldHandler("slug"),
+        ]
         DuplicateObject.do(self.obj)
         self.assertTrue(mocked_model_save.called)
         self.assertEqual(self.obj.title, "COPY Titulo do meu objeto")

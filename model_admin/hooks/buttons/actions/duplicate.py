@@ -3,7 +3,7 @@ from typing import Type, List, Union
 
 from django.db.models import Model
 from django.utils.text import slugify
-
+from model_admin.hooks.buttons.handlers.base import FieldHandler
 
 class DuplicateObject:
 
@@ -73,7 +73,7 @@ class DuplicateObject:
         for field in obj._meta.get_fields():  # noqa
             if hasattr(field, "unique") and field.unique:
                 if "id" not in field.name:
-                    fields.append(field.name)
+                    fields.append(FieldHandler(field.name))
         return fields
 
     @classmethod
@@ -99,5 +99,6 @@ class DuplicateObject:
         obj.pk = None
 
         for field in cls._get_fields(obj):
+            print("FIELD AQUI PORRA:", field)
             setattr(obj, field.name, field.handle(obj))
         obj.save()
