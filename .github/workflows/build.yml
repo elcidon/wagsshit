@@ -1,4 +1,3 @@
-
 on:
   push:
     branches:
@@ -39,7 +38,7 @@ jobs:
         id: test
         working-directory: .
         run: |
-            coverage run load_tests.py
+          coverage run load_tests.py
 
       - name: Generate XML
         run: |
@@ -51,9 +50,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Codacy Coverage Reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: .coverage-reports/coverage-report.xml
