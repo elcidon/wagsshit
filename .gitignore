@@ -131,3 +131,6 @@ dmypy.json
 
 # SQLITE
 core/db.sqlite3
+
+# Remove the wagtail project from repo
+core/
