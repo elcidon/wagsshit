@@ -30,7 +30,7 @@ class TestRegisterHandler(TestCase):
 
     def test_get_all_fields(self):
         """Should return all fields including the unique fields."""
-        self.obj.HANDLER_FIELDS_TO_DUPLICATE = [
+        self.obj.TO_DUPLICATE = [
             FieldHandler("title"),
         ]
 
@@ -54,7 +54,7 @@ class TestRegisterHandler(TestCase):
     @patch.object(MockedModel, 'save')
     def test_handle_all_fields(self, mocked_model_save):
         """Should handle registered fields"""
-        self.obj.HANDLER_FIELDS_TO_DUPLICATE = [
+        self.obj.TO_DUPLICATE = [
             FieldHandler("title"),
             SlugFieldHandler("slug"),
         ]

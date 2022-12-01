@@ -112,7 +112,7 @@ class RegisterHandlers(IHandlers):
     """
     Implementation example:
 
-    HANDLER_FIELDS_TO_DUPLICATE = RegisterHandlers(
+    TO_DUPLICATE = RegisterHandlers(
         obj=self,
         fields=[
             FieldHandler("title"),
@@ -153,8 +153,8 @@ class RegisterHandlers(IHandlers):
         """
         fields = self._import_unique_fields() if self.auto_import_unique_fields else []
 
-        if hasattr(self.obj, "HANDLER_FIELDS_TO_DUPLICATE"):
-            register_handlers = getattr(self.obj, "HANDLER_FIELDS_TO_DUPLICATE")
+        if hasattr(self.obj, "TO_DUPLICATE"):
+            register_handlers = getattr(self.obj, "TO_DUPLICATE")
             fields = fields + register_handlers
         return fields
 

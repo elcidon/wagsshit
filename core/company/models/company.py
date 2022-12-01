@@ -11,8 +11,8 @@ from model_admin.hooks.buttons.handlers.base import FieldHandler
 class Company(CommonInfo):
     trade_name = models.CharField(_("Razão Social"), max_length=255)
 
-    HANDLER_FIELDS_TO_DUPLICATE = [
-        FieldHandler("trade_name", prefix="CÓPIA______", suffix="______TESTE"),
+    TO_DUPLICATE = [
+        FieldHandler("trade_name", prefix="COÉ ", suffix="______TESTE"),
     ]
 
     def __str__(self):

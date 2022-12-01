@@ -39,7 +39,7 @@ class TestDuplicateUtils(TestCase):
     @patch.object(MockedModel, 'save')
     def test_check_all_fields_to_duplicate(self, mocked_model_save):
         """should fetch all fields to duplicate and set the prefix copy to each of them."""
-        self.obj.HANDLER_FIELDS_TO_DUPLICATE = [
+        self.obj.TO_DUPLICATE = [
             FieldHandler("title"), 
             SlugFieldHandler("slug"),
         ]

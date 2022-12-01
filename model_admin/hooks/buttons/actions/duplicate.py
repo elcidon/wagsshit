@@ -94,10 +94,10 @@ class DuplicateObject:
         """
         unique_fields = cls._auto_import_unique_fields(obj)
 
-        if hasattr(obj, "HANDLER_FIELDS_TO_DUPLICATE"):
+        if hasattr(obj, "TO_DUPLICATE"):
             unique_fields = cls._remove_duplicates([
                 unique_fields,
-                obj.HANDLER_FIELDS_TO_DUPLICATE,
+                obj.TO_DUPLICATE,
             ])
         return unique_fields
 
