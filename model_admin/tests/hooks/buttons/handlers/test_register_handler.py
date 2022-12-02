@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from django.test import TestCase
 
-from model_admin.hooks.buttons.handlers.base import FieldHandler, SlugFieldHandler, RegisterHandlers
+from model_admin.hooks.buttons.handlers import FieldHandler, SlugFieldHandler, RegisterHandlers
 from model_admin.tests.hooks.buttons.test_base.mocks import MockedModel
 
 

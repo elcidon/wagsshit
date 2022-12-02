@@ -5,7 +5,7 @@ from wagtail.core.fields import StreamField
 from core.company.blocks.header import HeadingBlock
 from core.core.models import CommonInfo
 
-from model_admin.hooks.buttons.handlers.base import FieldHandler
+from model_admin.hooks.buttons.handlers import FieldHandler
 
 
 class Company(CommonInfo):

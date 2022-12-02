@@ -4,7 +4,7 @@ from django.urls import re_path
 from wagtail.contrib.modeladmin.options import ModelAdmin
 
 from model_admin.hooks.buttons.components import Button
-from model_admin.hooks.buttons.helpers.default import DefaultButtonHelper
+from model_admin.hooks.buttons.helpers import DefaultButtonHelper
 from model_admin.hooks.views.duplicate import DuplicateView
 
 

@@ -3,7 +3,7 @@ from typing import Type, List, Union
 
 from django.db.models import Model
 from django.utils.text import slugify
-from model_admin.hooks.buttons.handlers.base import FieldHandler
+from model_admin.hooks.buttons.handlers import FieldHandler
 
 
 class DuplicateObject:

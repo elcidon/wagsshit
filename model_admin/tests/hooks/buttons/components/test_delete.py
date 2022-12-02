@@ -1,6 +1,6 @@
 from model_admin.hooks.buttons.components import DeleteButton
 from model_admin.hooks.buttons.entity.button import ButtonEntity
-from model_admin.hooks.buttons.helpers.base import BaseButtonHelper
+from model_admin.hooks.buttons.helpers import BaseButtonHelper
 from model_admin.tests.hooks.buttons.test_base.base import TestBaseButtons
 
 
@@ -35,4 +35,3 @@ class TestBaseHelper(TestBaseButtons):
             [],
             [],
         )
-        print(button.to_dict())

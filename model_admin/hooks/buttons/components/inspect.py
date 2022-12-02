@@ -1,6 +1,6 @@
 from django.contrib.admin.utils import quote
 
-from .base import Button
+from . import Button
 from django.utils.translation import gettext as _
 from model_admin.hooks.buttons.entity.button import ButtonEntity
 

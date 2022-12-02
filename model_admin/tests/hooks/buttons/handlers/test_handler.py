@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from model_admin.hooks.buttons.handlers.base import FieldHandler, SlugFieldHandler
+from model_admin.hooks.buttons.handlers import FieldHandler, SlugFieldHandler
 from model_admin.tests.hooks.buttons.test_base.mocks import MockedModel
 
 

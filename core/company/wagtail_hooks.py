@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 
 from .models import Company
 from model_admin.hooks.buttons.components import DuplicateButton
-from model_admin.hooks.modeladmin.options import BaseModelAdmin
+from model_admin.hooks.modeladmin import BaseModelAdmin
 
 
 @modeladmin_register

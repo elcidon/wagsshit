@@ -1,7 +1,6 @@
 from unittest.mock import Mock
 from model_admin.hooks.buttons.components import AddButton, Button
-from model_admin.hooks.buttons.helpers.base import BaseButtonHelper
-from model_admin.hooks.buttons.helpers.default import DefaultButtonHelper
+from model_admin.hooks.buttons.helpers import BaseButtonHelper, DefaultButtonHelper
 from model_admin.tests.hooks.buttons.test_base.base import TestBaseButtons
 
 

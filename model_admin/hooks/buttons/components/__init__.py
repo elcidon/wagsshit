@@ -1,4 +1,4 @@
-from .base import Button
+from .button import Button
 from .add import AddButton
 from .delete import DeleteButton
 from .edit import EditButton

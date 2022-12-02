@@ -2,7 +2,7 @@ from unittest.mock import patch
 from django.test import TestCase
 from model_admin.hooks.buttons.actions.duplicate import DuplicateObject
 from model_admin.tests.hooks.buttons.test_base.mocks import MockedModel
-from model_admin.hooks.buttons.handlers.base import FieldHandler, SlugFieldHandler
+from model_admin.hooks.buttons.handlers import FieldHandler, SlugFieldHandler
 
 
 class TestDuplicateUtils(TestCase):
