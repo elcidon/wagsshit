@@ -17,6 +17,9 @@ class BaseButtonHelper:
         self.permission_helper = view.permission_helper
         self.url_helper = view.url_helper
 
+    def add_button(self, *args, **kwargs):
+        return self.get_add_button()
+
     def get_add_button(self):
         return self._add_button().render(self)
 
